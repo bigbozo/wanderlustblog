@@ -6,6 +6,8 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 //noinspection JSUnresolvedFunction
 var autoprefixer = require('gulp-autoprefixer');
+//noinspection JSUnresolvedFunction
+var addsrc = require('gulp-add-src');
 
 var cssCompiledFile = 'style.css';
 
@@ -18,13 +20,7 @@ gulp.task('sass', function () {
         gulp.src('./assets/scss/main.scss')
             .pipe(sass())
             .pipe(autoprefixer())
-            .pipe(concat(intermediateFile))
-            .pipe(gulp.dest(tempPath));
-
-        gulp.src([
-            tempPath + intermediateFile,
-            '../openlayers/node_modules/openlayers/dist/ol.css'
-        ])
+            .pipe(addsrc('../openlayers/node_modules/openlayers/dist/ol.css'))
             .pipe(concat('styles.css'))
             .pipe(gulp.dest('./public/style/'));
     } catch (e) {

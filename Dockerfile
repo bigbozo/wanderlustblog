@@ -38,10 +38,13 @@ ADD openlayers /openlayers/
 WORKDIR /openlayers
 RUN npm install openlayers
 
+RUN npm install -g \
+	gulp-add-src
+
 ADD htdocs /data/
 WORKDIR /data
 RUN bower --allow-root --config.interactive=false install
-RUN npm link gulp gulp-sass gulp-concat gulp-util gulp-autoprefixer && gulp deploy
+RUN npm link gulp gulp-sass gulp-concat gulp-util gulp-autoprefixer gulp-add-src && gulp deploy
 
 EXPOSE 80
 
