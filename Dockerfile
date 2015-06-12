@@ -33,10 +33,13 @@ RUN npm install -g \
 	gulp-sass \
 	gulp-util
 
+# Prepend openlayers to prevent complete rebuild after changes in htdocs/
+ADD openlayers /openlayers/
+WORKDIR /openlayers
+RUN npm install openlayers
+
 ADD htdocs /data/
 WORKDIR /data
-RUN npm install openlayers
-RUN ls -l
 RUN bower --allow-root --config.interactive=false install
 RUN npm link gulp gulp-sass gulp-concat gulp-util gulp-autoprefixer && gulp deploy
 

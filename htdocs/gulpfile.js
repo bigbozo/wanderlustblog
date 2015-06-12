@@ -23,7 +23,7 @@ gulp.task('sass', function () {
 
         gulp.src([
             tempPath + intermediateFile,
-            './node_modules/openlayers/dist/ol.css'
+            '../openlayers/node_modules/openlayers/dist/ol.css'
         ])
             .pipe(concat('styles.css'))
             .pipe(gulp.dest('./public/style/'));
@@ -39,7 +39,7 @@ gulp.task('publish', function () {
 gulp.task('scripts', function () {
 
     gulp.src([
-        './node_modules/openlayers/dist/ol.js',
+        '../openlayers/node_modules/openlayers/dist/ol.js',
         './assets/script/initMap.js'
     ])
         .pipe(concat('script.js'))
