@@ -1,0 +1,15 @@
+{
+  "name": "htdocs",
+  "version": "0.0.0",
+  "authors": [
+    "Bugi Görtz <bugi@joboland.de>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
